@@ -91,7 +91,7 @@ class Prediction(APIView):
                 # Filter the features you want to use for prediction
                 post_df = post_df[['sex', 'age', 'wgt', 'hgt', 'bmi', 'fever', 'platelet', 'hemato', 'wbc', 'j_pain',
                                 's_rash', 'headache', 'abdo_pain', 'vomit', 'bleed', 'ns1_anti',
-                                'igm_anti', 'igg_anti', 'hospi']]
+                                'igm_anti', 'igg_anti']]
 
                 # Make predictions
                 predictions = model.predict(post_df)

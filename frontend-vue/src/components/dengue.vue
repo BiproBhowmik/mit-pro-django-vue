@@ -192,37 +192,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-20">
+                            <!-- <div class="row mb-20">
                                 <div class="col-md-4">
                                     <div class="form-group mt-15">
                                         <label class="mb-15">Hospitalization :</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.hospi">
-                            <Radio label="1">Yes</Radio>
-                            <Radio label="0">No</Radio>
-                        </RadioGroup>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
+                                        </RadioGroup>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </fieldset>
                     </div>
                     <div class="d-grid gap-2 text-center ptb-20">
-                        <button @click="predictDengue()" type="button" class="btn btn-primary" name="predict">Predict</button>
+                        <button @click="predictDengue()" type="button" class="btn btn-primary"
+                            name="predict">Predict</button>
                     </div>
                 </div>
 
 
-                <Modal
-                v-model="result_modal"
-                title="Dengue Prediction result"
-                @on-ok="ok"
-                @on-cancel="cancel">
-                <h2>Hello {{ person_info.name }} !!</h2>
-                <div>
-                    <h5 v-if="result.data == 1">Machine predicted Dengue Positive !! &#128549;</h5>
-                    <h5 v-if="result.data == 0">Machine predicted Dengue Negative !! &#128522;</h5>
-                </div>
-            </Modal>
+                <Modal v-model="result_modal" title="Dengue Prediction result" @on-ok="ok" @on-cancel="cancel">
+                    <h2>Hello {{ person_info.name }} !!</h2>
+                    <div>
+                        <h5 v-if="result.data == 1">
+                            Machine predicted Dengue Positive !! &#128549;
+                            <br>
+                            Suggestion for Hospitalization.
+                        </h5>
+                        <h5 v-if="result.data == 0">Machine predicted Dengue Negative !! &#128522;</h5>
+                    </div>
+                </Modal>
 
             </div>
         </div>
@@ -260,7 +261,7 @@ export default {
                 bleed: "",
                 ns1_anti: "",
                 igm_anti: "",
-                hospi: ""
+                // hospi: ""
             }
 
 
