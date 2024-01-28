@@ -81,17 +81,15 @@ class Prediction(APIView):
                 post_data = json.loads(request.body.decode('utf-8'))
                 
                 # Load the machine learning model
-                model = joblib.load("./MLModeles/DenguModel.pickle")
+                model = joblib.load("./MLModeles/DenguModel_new.pickle")
 
                 # Create a DataFrame from the post_data
                 post_df = pd.DataFrame([post_data])
 
-                post_df['bmi'] = float(post_df['wgt']) / (float(post_df['hgt']) ** 2)
+                # post_df['bmi'] = float(post_df['wgt']) / (float(post_df['hgt']) ** 2)
 
                 # Filter the features you want to use for prediction
-                post_df = post_df[['sex', 'age', 'wgt', 'hgt', 'bmi', 'fever', 'platelet', 'hemato', 'wbc', 'j_pain',
-                                's_rash', 'headache', 'abdo_pain', 'vomit', 'bleed', 'ns1_anti',
-                                'igm_anti', 'igg_anti']]
+                post_df = post_df[['fever', 'Hypotension', 'platelet_count', 'wbc', 'ns1_anti', 'igg_anti']]
 
                 # Make predictions
                 predictions = model.predict(post_df)

@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4> Health Data Analysis Tool (HDAT)</h4>
+                            <h4> Dengue Disease Prediction Tool (DDPT)</h4>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                                             placeholder="Enter Patient name">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="mb-15">Gender:</label>
                                         <br>
@@ -55,8 +55,15 @@
                                         <input v-model="dengue_info.wgt" type="number" class="form-control" id="weight"
                                             placeholder="Enter your weight">
                                     </div>
-                                </div>
-                                <div class="col-md-4">
+                                </div> -->
+                                
+                            </div>
+                        </fieldset>
+                        <!-- generic information -->
+                        <fieldset class="mb-30">
+                            <legend>Generic Information</legend>
+                            <div class="row mb-20">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label class="mb-20">Presence of Fever:</label>
                                         <br>
@@ -66,13 +73,17 @@
                                         </RadioGroup>
                                     </div>
                                 </div>
-                            </div>
-                        </fieldset>
-                        <!-- generic information -->
-                        <fieldset class="mb-30">
-                            <legend>Generic Information</legend>
-                            <div class="row mb-20">
-                                <div class="col-md-4 mb-15">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="mb-20">Hypotension:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Hypotension">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4 mb-15">
                                     <div class="form-group">
                                         <label class="mb-15">Presence of Joint Pain:</label>
                                         <br>
@@ -131,37 +142,36 @@
                                             <Radio label="0">Absent</Radio>
                                         </RadioGroup>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </fieldset>
                         <!-- generic information -->
                         <fieldset>
                             <legend>Medical Information</legend>
                             <div class="row mb-20">
-                                <div class="col-md-4 mb-15">
+                                <div class="col-md-3 mb-15">
                                     <div class="form-group">
-                                        <label for="platelet" class="mb-10">Platelet Count:</label>
-                                        <input v-model="dengue_info.platelet" type="number" name="platelet"
-                                            class="form-control" id="platelet" placeholder="Platelet Count">
+                                        <label for="platelet_count" class="mb-10">Platelet Count:</label>
+                                        <input min="1" v-model="dengue_info.platelet_count" type="number" name="platelet_count"
+                                            class="form-control" id="platelet_count" placeholder="Platelet Count">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-15">
+                                <!-- <div class="col-md-4 mb-15">
                                     <div class="form-group">
                                         <label for="hematocrit" class="mb-10">Hematocrit level:</label>
                                         <input v-model="dengue_info.hemato" type="number" name="hematocrit"
                                             class="form-control" id="hematocrit" placeholder="Hematocrit level">
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-15">
+                                </div> -->
+                                <div class="col-md-3 mb-15">
                                     <div class="form-group">
                                         <label for="white_blood" class="mb-10">White Blood Cell Count:</label>
-                                        <input v-model="dengue_info.wbc" type="number" name="white_blood"
+                                        <input min="1" v-model="dengue_info.wbc" type="number" name="white_blood"
                                             class="form-control" id="white_blood" placeholder="White Blood Cell Count">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mb-20">
-                                <div class="col-md-4">
+
+                                <div class="col-md-3">
                                     <div class="form-group mt-15">
                                         <label class="mb-15">NS1 Antigen Test Result :</label>
                                         <br>
@@ -171,17 +181,8 @@
                                         </RadioGroup>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mt-15">
-                                        <label class="mb-15">IgM Antibody Test Result :</label>
-                                        <br>
-                                        <RadioGroup v-model="dengue_info.igm_anti">
-                                            <Radio label="1">Positive</Radio>
-                                            <Radio label="0">Negative</Radio>
-                                        </RadioGroup>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
+
+                                <div class="col-md-3">
                                     <div class="form-group mt-15">
                                         <label class="mb-15">IgG Antibody Test Result :</label>
                                         <br>
@@ -191,6 +192,20 @@
                                         </RadioGroup>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mb-20">
+                                
+                                <!-- <div class="col-md-4">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">IgM Antibody Test Result :</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.igm_anti">
+                                            <Radio label="1">Positive</Radio>
+                                            <Radio label="0">Negative</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div> -->
+                                
                             </div>
                             <!-- <div class="row mb-20">
                                 <div class="col-md-4">
@@ -207,8 +222,8 @@
                         </fieldset>
                     </div>
                     <div class="d-grid gap-2 text-center ptb-20">
-                        <button @click="predictDengue()" type="button" class="btn btn-primary"
-                            name="predict">Predict</button>
+                        <Button :loading="pridict_button.loading" @click="predictDengue()" type="primary" class="btn btn-primary"
+                            name="predict">{{pridict_button.text}}</Button>
                     </div>
                 </div>
 
@@ -245,23 +260,28 @@ export default {
             },
             dengue_info: {
                 igg_anti: "",
-                sex: "",
-                age: "",
-                wgt: "",
-                hgt: "",
+                // sex: "",
+                // age: "",
+                // wgt: "",
+                // hgt: "",
                 fever: "",
-                platelet: "",
-                hemato: "",
+                Hypotension: "",
+                platelet_count: "",
+                // hemato: "",
                 wbc: "",
-                j_pain: "",
-                s_rash: "",
-                headache: "",
-                abdo_pain: "",
-                vomit: "",
-                bleed: "",
+                // j_pain: "",
+                // s_rash: "",
+                // headache: "",
+                // abdo_pain: "",
+                // vomit: "",
+                // bleed: "",
                 ns1_anti: "",
-                igm_anti: "",
+                // igm_anti: "",
                 // hospi: ""
+            },
+            pridict_button: {
+                text: 'Predict',
+                loading: false,
             }
 
 
@@ -273,13 +293,30 @@ export default {
                 this.$Message.error('All Field is required');
                 return;
             }
+            this.buttonLoader('load');  //Predict Button Status
             const response = await axios.post('dengue/prediction/', this.dengue_info);
             if (response.data.status === 'OK') {
                 this.result.data = response.data.predictions;
                 this.result_modal = true;
+
+                this.buttonLoader('not load');  //Predict Button Status
             }
             else {
                 this.$Message.error(response.data.message);
+                this.buttonLoader('not load');  //Predict Button Status
+            }
+        },
+
+        buttonLoader(status)
+        {
+            if(status == 'load')
+            {
+                this.pridict_button.text = 'Loading...';
+                this.pridict_button.loading = true;
+            }
+            else{
+                this.pridict_button.text = 'Predict';
+                this.pridict_button.loading = false;
             }
         },
 
