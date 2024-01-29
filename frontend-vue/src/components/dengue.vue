@@ -59,7 +59,7 @@
                         </fieldset>
                         <!-- generic information -->
                         <fieldset class="mb-30">
-                            <legend>Generic Information</legend>
+                            <legend>Clinical Information</legend>
                             <div class="row mb-20">
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
@@ -86,8 +86,8 @@
                                         <label class="mb-15">Presence of Joint Pain:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.j_pain">
-                                            <Radio label="1">Present</Radio>
-                                            <Radio label="0">Absent</Radio>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -96,8 +96,8 @@
                                         <label class="mb-15">Presence of Skin Rash:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.s_rash">
-                                            <Radio label="1">Present</Radio>
-                                            <Radio label="0">Absent</Radio>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -106,8 +106,8 @@
                                         <label class="mb-15">Presence of Severe Headach:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.headache">
-                                            <Radio label="1">Present</Radio>
-                                            <Radio label="0">Absent</Radio>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -116,8 +116,8 @@
                                         <label class="mb-15">Presence of Adominal Pain:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.abdo_pain">
-                                            <Radio label="1">Present</Radio>
-                                            <Radio label="0">Absent</Radio>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -126,8 +126,8 @@
                                         <label class="mb-15">Presence of Vomiting:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.vomit">
-                                            <Radio label="1">Present</Radio>
-                                            <Radio label="0">Absent</Radio>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -136,8 +136,8 @@
                                         <label class="mb-15">Presence of Bleeding:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.bleed">
-                                            <Radio label="1">Present</Radio>
-                                            <Radio label="0">Absent</Radio>
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="0">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -145,7 +145,7 @@
                         </fieldset>
                         <!-- generic information -->
                         <fieldset>
-                            <legend>Medical Information</legend>
+                            <legend>Lab Test</legend>
                             <div class="row mb-20">
                                 <div class="col-md-3 mb-15">
                                     <div class="form-group mt-15">
@@ -175,8 +175,8 @@
                                         <label class="mb-15">NS1 Antigen Test Result:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.ns1_anti">
-                                            <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="1">Positive</Radio>
+                                            <Radio label="0">Negative</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -186,8 +186,8 @@
                                         <label class="mb-15">IgG Antibody Test Result:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.igg_anti">
-                                            <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="1">Positive</Radio>
+                                            <Radio label="0">Negative</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
@@ -197,8 +197,8 @@
                                         <label class="mb-15">IgM Antibody Test Result:</label>
                                         <br>
                                         <RadioGroup v-model="dengue_info.igm_anti">
-                                            <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="1">Positive</Radio>
+                                            <Radio label="0">Negative</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
