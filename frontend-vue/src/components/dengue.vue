@@ -26,21 +26,36 @@
                                     <div class="form-group mt-15">
                                         <label class="mb-15">Gender:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.sex">
+                                        <RadioGroup v-model="dengue_info.Sex">
                                             <Radio label="1">Male</Radio>
-                                            <Radio label="2">Female</Radio>
+                                            <Radio label="0">Female</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label for="age" class="mb-10">Age (month):</label>
-                                        <input v-model="dengue_info.age" type="number" class="form-control" id="age"
+                                        <label for="age" class="mb-10">Age (year):</label>
+                                        <input v-model="dengue_info.Patient_Age_Years" type="number" class="form-control" id="age"
                                             placeholder="Enter your age">
                                     </div>
                                 </div>
-
                                 <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label for="age" class="mb-10">Patient Race:</label>
+                                        <Select size="large" v-model="dengue_info.Race">
+                                            <Option v-for="item in raceList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                                        </Select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label for="age" class="mb-10">Residence Area:</label>
+                                        <Select size="large" v-model="dengue_info.Residence_Area">
+                                            <Option v-for="item in residenceAreaList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                                        </Select>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
                                     <div class="form-group mt-15">
                                         <label for="height" class="mb-10">Height (m):</label>
                                         <input v-model="dengue_info.hgt" type="number" class="form-control" id="height"
@@ -53,168 +68,237 @@
                                         <input v-model="dengue_info.wgt" type="number" class="form-control" id="weight"
                                             placeholder="Enter your weight">
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                         </fieldset>
                         <!-- generic information -->
                         <fieldset class="mb-30">
-                            <legend>Clinical Information</legend>
+                            <legend>Clinical Symptom</legend>
                             <div class="row mb-20">
+                                
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label class="mb-20">Presence of Fever:</label>
+                                        <label class="mb-20">Fever:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.fever">
+                                        <RadioGroup v-model="dengue_info.Fever">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label class="mb-20">Hypotension:</label>
+                                        <label class="mb-20">Myalgia:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.Hypotension">
+                                        <RadioGroup v-model="dengue_info.Myalgia">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-15">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">Presence of Joint Pain:</label>
+                                        <label class="mb-15">Headache:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.j_pain">
+                                        <RadioGroup v-model="dengue_info.Headache">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-15">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">Presence of Skin Rash:</label>
+                                        <label class="mb-15">Rash:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.s_rash">
+                                        <RadioGroup v-model="dengue_info.Rash">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-15">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">Presence of Severe Headach:</label>
+                                        <label class="mb-15">Vomiting:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.headache">
+                                        <RadioGroup v-model="dengue_info.Vomiting">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">Presence of Adominal Pain:</label>
+                                        <label class="mb-15">Nausea:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.abdo_pain">
+                                        <RadioGroup v-model="dengue_info.Nausea">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">Presence of Vomiting:</label>
+                                        <label class="mb-15">Back Pain:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.vomit">
+                                        <RadioGroup v-model="dengue_info.Back_Pain">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">Presence of Bleeding:</label>
+                                        <label class="mb-15">Conjunctivitis:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.bleed">
+                                        <RadioGroup v-model="dengue_info.Conjunctivitis">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Arthritis:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Arthritis">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Artralgia:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Artralgia">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Petechiae:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Petechiae">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Tourniquet Test:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Tourniquet_Test">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Retroorbital Pain:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Retroorbital_Pain">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </fieldset>
                         <!-- generic information -->
                         <fieldset>
-                            <legend>Lab Test</legend>
+                            <legend>Pre-existing Disease</legend>
                             <div class="row mb-20">
-                                <div class="col-md-3 mb-15">
-                                    <div class="form-group mt-15">
-                                        <label for="platelet_count" class="mb-10">Platelet Count:</label>
-                                        <input min="1" v-model="dengue_info.platelet_count" type="number" name="platelet_count"
-                                            class="form-control" id="platelet_count" placeholder="Platelet Count">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-15">
-                                    <div class="form-group mt-15">
-                                        <label for="hematocrit" class="mb-10">Hematocrit level:</label>
-                                        <input v-model="dengue_info.hemato" type="number" name="hematocrit"
-                                            class="form-control" id="hematocrit" placeholder="Hematocrit level">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-15">
-                                    <div class="form-group mt-15">
-                                        <label for="white_blood" class="mb-10">White Blood Cell Count:</label>
-                                        <input min="1" v-model="dengue_info.wbc" type="number" name="white_blood"
-                                            class="form-control" id="white_blood" placeholder="White Blood Cell Count">
-                                    </div>
-                                </div>
-
                                 <div class="col-md-3">
                                     <div class="form-group mt-15">
-                                        <label class="mb-15">NS1 Antigen Test Result:</label>
+                                        <label class="mb-15">Diabetes:</label>
                                         <br>
-                                        <RadioGroup v-model="dengue_info.ns1_anti">
-                                            <Radio label="1">Positive</Radio>
-                                            <Radio label="0">Negative</Radio>
-                                        </RadioGroup>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group mt-15">
-                                        <label class="mb-15">IgG Antibody Test Result:</label>
-                                        <br>
-                                        <RadioGroup v-model="dengue_info.igg_anti">
-                                            <Radio label="1">Positive</Radio>
-                                            <Radio label="0">Negative</Radio>
-                                        </RadioGroup>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group mt-15">
-                                        <label class="mb-15">IgM Antibody Test Result:</label>
-                                        <br>
-                                        <RadioGroup v-model="dengue_info.igm_anti">
-                                            <Radio label="1">Positive</Radio>
-                                            <Radio label="0">Negative</Radio>
-                                        </RadioGroup>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <div class="form-group mt-15">
-                                        <label class="mb-15">Hospitalization:</label>
-                                        <br>
-                                        <RadioGroup v-model="dengue_info.hospi">
+                                        <RadioGroup v-model="dengue_info.Diabetes">
                                             <Radio label="1">Yes</Radio>
-                                            <Radio label="0">No</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Hematological Disease:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Hematological_Disease">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Liver Disease:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Liver_Disease">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Kidney Disease:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Kidney_Disease">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Hypertension:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Hypertension">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Peptic Acid Disease:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Peptic_Acid_Disease">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
+                                        </RadioGroup>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label class="mb-15">Auto Immune Disease:</label>
+                                        <br>
+                                        <RadioGroup v-model="dengue_info.Auto_Immune_Disease">
+                                            <Radio label="1">Yes</Radio>
+                                            <Radio label="2">No</Radio>
                                         </RadioGroup>
                                     </div>
                                 </div>
                             </div>
                             
+                        </fieldset>
+
+                        <fieldset class="ptb-20 mb-30">
+                            <legend>Other Information</legend>
+                            <div class="row mb-20">
+                                <div class="col-md-3">
+                                    <div class="form-group mt-15">
+                                        <label for="age" class="mb-10">Day Count of Symptoms:</label>
+                                        <input v-model="dengue_info.Day_Count_of_Symptoms" type="number" class="form-control" id="age"
+                                            placeholder="Enter your age">
+                                    </div>
+                                </div>
+                            </div>
                         </fieldset>
                     </div>
                     <div class="d-grid gap-2 text-center ptb-20">
@@ -225,14 +309,14 @@
 
 
                 <Modal v-model="result_modal" title="Dengue Prediction result" @on-ok="ok" @on-cancel="cancel">
-                    <h2>Hello {{ person_info.name }} !!</h2>
+                    <h2>Hello, {{ person_info.name }}</h2>
                     <div>
                         <h5 v-if="result.data == 1">
-                            Machine predicted Dengue Positive !! &#128549;
+                            The machine predicted you have Dengue. &#128549;
                             <br>
-                            Suggestion for Hospitalization.
+                            Please consult your nearby hospital.
                         </h5>
-                        <h5 v-if="result.data == 0">Machine predicted Dengue Negative !! &#128522;</h5>
+                        <h5 v-if="result.data == 0">We have a prediction that you do not have Dengue. &#128522;</h5>
                     </div>
                 </Modal>
 
@@ -255,26 +339,72 @@ export default {
                 name: ""
             },
             dengue_info: {
-                igg_anti: "",
-                // sex: "",
-                // age: "",
-                // wgt: "",
-                // hgt: "",
-                fever: "",
-                Hypotension: "",
-                platelet_count: "",
-                // hemato: "",
-                wbc: "",
-                // j_pain: "",
-                // s_rash: "",
-                // headache: "",
-                // abdo_pain: "",
-                // vomit: "",
-                // bleed: "",
-                ns1_anti: "",
-                // igm_anti: "",
-                // hospi: ""
+                Sex: null,
+                Patient_Age_Years: null,
+                Race: null,
+                Residence_Area: null,
+                Fever: null,
+                Myalgia: null,
+                Headache: null,
+                Rash: null,
+                Vomiting: null,
+                Nausea: null,
+                Back_Pain: null,
+                Conjunctivitis: null,
+                Arthritis: null,
+                Artralgia: null,
+                Petechiae: null,
+                Tourniquet_Test: null,
+                Retroorbital_Pain: null,
+                Diabetes: null,
+                Hematological_Disease: null,
+                Liver_Disease: null,
+                Kidney_Disease: null,
+                Hypertension: null,
+                Peptic_Acid_Disease: null,
+                Auto_Immune_Disease: null,
+                Day_Count_of_Symptoms: null
             },
+            raceList: [
+                    {
+                        value: 1,
+                        label: 'White'
+                    },
+                    {
+                        value: 2,
+                        label: 'Black'
+                    },
+                    {
+                        value: 3,
+                        label: 'Yellow'
+                    },
+                    {
+                        value: 4,
+                        label: 'Brown'
+                    },
+                    {
+                        value: 5,
+                        label: 'Indigenous'
+                    },
+                    {
+                        value: 9,
+                        label: 'Ignored'
+                    }
+                ],
+            residenceAreaList: [
+                    {
+                        value: 1,
+                        label: 'Urban'
+                    },
+                    {
+                        value: 2,
+                        label: 'Rural'
+                    },
+                    {
+                        value: 3,
+                        label: 'Periurban'
+                    }
+                ],
             pridict_button: {
                 text: 'Predict',
                 loading: false,

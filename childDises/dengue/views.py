@@ -70,6 +70,8 @@ from rest_framework import authentication, permissions
 import joblib
 # import panPredictiondas as pd
 import json
+import sklearn
+
 
 class Prediction(APIView):
     authentication_classes = [TokenAuthentication]
@@ -81,15 +83,18 @@ class Prediction(APIView):
                 post_data = json.loads(request.body.decode('utf-8'))
                 
                 # Load the machine learning model
-                model = joblib.load("./MLModeles/DenguModel_new.pickle")
+                model = joblib.load("./MLModeles/DenguModel_Final.pickle")
 
                 # Create a DataFrame from the post_data
                 post_df = pd.DataFrame([post_data])
 
-                # post_df['bmi'] = float(post_df['wgt']) / (float(post_df['hgt']) ** 2)
-
-                # Filter the features you want to use for prediction
-                post_df = post_df[['fever', 'Hypotension', 'platelet_count', 'wbc', 'ns1_anti', 'igg_anti']]
+                post_df = post_df[['Sex', 'Race', 'Residence_Area', 'Fever', 'Myalgia',
+                     'Headache', 'Rash',
+                    'Vomiting', 'Nausea', 'Back_Pain', 'Conjunctivitis', 'Arthritis',
+                    'Artralgia', 'Petechiae', 'Tourniquet_Test', 'Retroorbital_Pain',
+                    'Diabetes', 'Hematological_Disease', 'Liver_Disease', 'Kidney_Disease',
+                    'Hypertension', 'Peptic_Acid_Disease', 'Auto_Immune_Disease',
+                    'Day_Count_of_Symptoms', 'Patient_Age_Years']]
 
                 # Make predictions
                 predictions = model.predict(post_df)
