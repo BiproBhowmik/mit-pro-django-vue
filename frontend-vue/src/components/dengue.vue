@@ -295,7 +295,7 @@
                                     <div class="form-group mt-15">
                                         <label for="age" class="mb-10">Day Count of Symptoms:</label>
                                         <input v-model="dengue_info.Day_Count_of_Symptoms" type="number" class="form-control" id="age"
-                                            placeholder="Enter your age">
+                                            placeholder="Day Count of Symptoms">
                                     </div>
                                 </div>
                             </div>
